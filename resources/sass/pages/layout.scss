@@ -1,0 +1,20 @@
+body {
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+.admin-content, .admin-sidebar {
+    min-height: 80vh;
+}
+
+.admin-footer {
+    height: 10vh;
+}
+
+.admin-header {
+    min-height: 10vh;
+    border-bottom: 1px solid $dark;
+}
