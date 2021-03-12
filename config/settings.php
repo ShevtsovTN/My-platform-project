@@ -21,11 +21,6 @@ return [
             ['name' => 'SuperagentBaseSetting2', 'type' => 'checkbox'],
             ['name' => 'SuperagentBaseSetting3', 'type' => 'text'],
         ],
-        'game' => [
-            ['name' => 'SuperagentGameSetting1', 'type' => 'select', 'options' => [0 => 'off', 1 => 1, 2 => 2]],
-            ['name' => 'SuperagentGameSetting2', 'type' => 'checkbox'],
-            ['name' => 'SuperagentGameSetting3', 'type' => 'number', 'format' => 'float'],
-        ]
     ],
     '2' => [
         'base' => [
@@ -33,11 +28,6 @@ return [
             ['name' => 'AgentSetting2', 'type' => 'uil uil-user', 'format' => '#'],
             ['name' => 'AgentSetting3', 'type' => 'uil uil-user', 'format' => '#'],
         ],
-        'game' => [
-            ['name' => 'AgentSetting1', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'AgentSetting2', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'AgentSetting3', 'type' => 'uil uil-user', 'format' => '#'],
-        ]
     ],
     '3' => [
         'base' => [
@@ -45,11 +35,21 @@ return [
             ['name' => 'DillerSetting2', 'type' => 'uil uil-user', 'format' => '#'],
             ['name' => 'DillerSetting3', 'type' => 'uil uil-user', 'format' => '#'],
         ],
-        'game' => [
+        'autocreatehall' => [
             ['name' => 'DillerSetting1', 'type' => 'uil uil-user', 'format' => '#'],
             ['name' => 'DillerSetting2', 'type' => 'uil uil-user', 'format' => '#'],
             ['name' => 'DillerSetting3', 'type' => 'uil uil-user', 'format' => '#'],
-        ]
+        ],
+        'jackpots' => [
+            ['name' => 'DillerSetting1', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'DillerSetting2', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'DillerSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+        ],
+        'casino' => [
+            ['name' => 'DillerSetting1', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'DillerSetting2', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'DillerSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+        ],
     ],
     '4' => [
         'base' => [
@@ -57,7 +57,17 @@ return [
             ['name' => 'HallSetting2', 'type' => 'uil uil-user', 'format' => '#'],
             ['name' => 'HallSetting3', 'type' => 'uil uil-user', 'format' => '#'],
         ],
-        'game' => [
+        'bonuses' => [
+            ['name' => 'HallSetting1', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'HallSetting2', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'HallSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+        ],
+        'gamelabels' => [
+            ['name' => 'HallSetting1', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'HallSetting2', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'HallSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+        ],
+        'jackpots' => [
             ['name' => 'HallSetting1', 'type' => 'uil uil-user', 'format' => '#'],
             ['name' => 'HallSetting2', 'type' => 'uil uil-user', 'format' => '#'],
             ['name' => 'HallSetting3', 'type' => 'uil uil-user', 'format' => '#'],
@@ -66,11 +76,6 @@ return [
     ],
     '5' => [
         'base' => [
-            ['name' => 'TerminalSetting1', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'TerminalSetting2', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'TerminalSetting3', 'type' => 'uil uil-user', 'format' => '#'],
-        ],
-        'game' => [
             ['name' => 'TerminalSetting1', 'type' => 'uil uil-user', 'format' => '#'],
             ['name' => 'TerminalSetting2', 'type' => 'uil uil-user', 'format' => '#'],
             ['name' => 'TerminalSetting3', 'type' => 'uil uil-user', 'format' => '#'],

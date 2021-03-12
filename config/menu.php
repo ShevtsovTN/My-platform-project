@@ -2,31 +2,31 @@
 
 return [
     '0' => [
-        ['name' => 'AdminMenuItem1', 'icon' => 'uil uil-user', 'route' => '#'],
-        ['name' => 'AdminMenuItem2', 'icon' => 'uil uil-user', 'route' => '#'],
-        ['name' => 'AdminMenuItem3', 'icon' => 'uil uil-user', 'route' => '#'],
+        ['name' => 'News', 'icon' => 'uil uil-newspaper', 'route' => '#'],
+        ['name' => 'Messages', 'icon' => 'uil uil-envelope-alt', 'route' => '#']
     ],
     '1' => [
-        ['name' => 'SuperagentMenuItem1', 'icon' => 'uil uil-user', 'route' => '#'],
-        ['name' => 'SuperagentMenuItem2', 'icon' => 'uil uil-user', 'route' => '#'],
-        ['name' => 'SuperagentMenuItem3', 'icon' => 'uil uil-user', 'route' => '#'],
+        ['name' => 'Balance History', 'icon' => 'uil uil-user', 'route' => '#'],
+        ['name' => 'Settings', 'icon' => 'uil uil-setting', 'route' => '#'],
     ],
     '2' => [
-        ['name' => 'AgentMenuItem1', 'icon' => 'uil uil-user', 'route' => '#'],
-        ['name' => 'AgentMenuItem2', 'icon' => 'uil uil-user', 'route' => '#'],
-        ['name' => 'AgentMenuItem3', 'icon' => 'uil uil-user', 'route' => '#'],
+        ['name' => 'Balance History', 'icon' => 'uil uil-user', 'route' => '#'],
+        ['name' => 'Sub Dealers', 'icon' => 'uil uil-users-alt', 'route' => '#']
     ],
     '3' => [
-        ['name' => 'DillerMenuItem1', 'icon' => 'uil uil-user', 'route' => '#'],
-        ['name' => 'DillerMenuItem2', 'icon' => 'uil uil-user', 'route' => '#'],
-        ['name' => 'DillerMenuItem3', 'icon' => 'uil uil-user', 'route' => '#'],
+        ['name' => 'Online Casino Payments', 'icon' => 'uil uil-credit-card', 'route' => '#'],
+        ['name' => 'Engineers', 'icon' => 'uil uil-constructor', 'route' => '#'],
+        ['name' => 'Manage Games List', 'icon' => 'uil uil-icons', 'route' => '#'],
     ],
     '4' => [
-        ['name' => 'HallMenuItem1', 'icon' => 'uil uil-user', 'route' => '#'],
-        ['name' => 'HallMenuItem2', 'icon' => 'uil uil-user', 'route' => '#'],
-        ['name' => 'HallMenuItem3', 'icon' => 'uil uil-user', 'route' => '#'],
+        ['name' => 'Online Casino Payments', 'icon' => 'uil uil-credit-card', 'route' => '#'],
+        ['name' => 'Balance History', 'icon' => 'uil uil-user', 'route' => '#'],
+        ['name' => 'Bonus Promocodes', 'icon' => 'uil uil-award', 'route' => '#'],
+        ['name' => 'Panic', 'icon' => 'uil uil-exclamation-circle', 'route' => '#'],
     ],
     'all' => [
-        ['name' => 'users', 'icon' => 'uil uil-user', 'route' => '/users']
+        ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => '/users'],
+        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => '#'],
+        ['name' => 'Settings', 'icon' => 'uil uil-setting', 'route' => '#'],
     ]
 ];
