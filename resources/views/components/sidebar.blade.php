@@ -1,12 +1,12 @@
 <!-- ========== Left Sidebar Start ========== -->
 <div class="d-flex flex-column justify-content-start align-content-start">
-    <div class="sidebar_auth-user mb-3 mt-3 ml-3 text-dark d-flex justify-content-start align-content-center">
+    <div class="sidebar_auth-user mb-4 mt-3 ml-3 text-dark d-flex justify-content-start align-content-center">
         <span class="uil uil-user mr-1 text-dark"></span>
-        {{$user->login}}
+        {{\Illuminate\Support\Facades\Auth::user()->login}}
     </div>
-    <div class="sidebar_user-menu d-flex justify-content-start align-content-center">
+    <div class="sidebar_user-menu mt-2 d-flex justify-content-start align-content-center">
         <ul class="nav flex-column">
-            @foreach($menu[$user->group] as $index => $item)
+            @foreach($menu[\Illuminate\Support\Facades\Auth::user()->group] as $index => $item)
             <li class="nav-item">
                 <a class="nav-link text-dark" href="{{$item['route']}}"><span class="mr-1 {{$item['icon']}}"></span>{{$item['name']}}</a>
             </li>

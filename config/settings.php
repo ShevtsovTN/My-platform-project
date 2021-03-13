@@ -7,12 +7,6 @@ return [
             ['name' => 'AdminSetting2', 'type' => 'checkbox'],
             ['name' => 'AdminSetting3', 'type' => 'text'],
             ['name' => 'AdminSetting4', 'type' => 'number', 'format' => 'float'],
-        ],
-        'game' => [
-            ['name' => 'AdminSetting1', 'type' => 'select', 'options' => [0 => 'off', 1 => 1, 2 => 2]],
-            ['name' => 'AdminSetting2', 'type' => 'checkbox'],
-            ['name' => 'AdminSetting3', 'type' => 'text'],
-            ['name' => 'AdminSetting4', 'type' => 'number', 'format' => 'float'],
         ]
     ],
     '1' => [

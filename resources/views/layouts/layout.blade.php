@@ -14,10 +14,7 @@
 </div>
 <div class="d-flex align-items-center justify-content-center admin-content" id="wrapper">
     <div class="col-3 admin-sidebar">
-        @include('components.sidebar', [
-            'user' => \Illuminate\Support\Facades\Auth::user(),
-            'menu' => include(config_path('menu.php'))
-        ])
+        @include('components.sidebar')
     </div>
     <div class="col-9 admin-content p-4">
         @yield('content')
