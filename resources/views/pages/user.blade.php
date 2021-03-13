@@ -4,7 +4,9 @@
 @section('title')
 
 @endsection
-
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('user', $user) }}
+@endsection
 @section('content')
     <div class="d-flex align-content-start justify-content-center">
         <table class="table">
@@ -20,23 +22,23 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($users as $index => $user)
+            @foreach($users as $index => $child)
                 <tr>
-                    <th class="align-middle" scope="row">{{$user->id}}</th>
-                    <td class="align-middle">{{$user->login}}</td>
-                    <td class="align-middle">{{$user->email}}</td>
-                    <td class="align-middle">{{$user->currency}}</td>
-                    <td class="align-middle">{{$user->cash}}</td>
+                    <th class="align-middle" scope="row">{{$child->id}}</th>
+                    <td class="align-middle">{{$child->login}}</td>
+                    <td class="align-middle">{{$child->email}}</td>
+                    <td class="align-middle">{{$child->currency}}</td>
+                    <td class="align-middle">{{$child->cash}}</td>
                     <td class="align-middle">
-                        @if($user->online == 1)
+                        @if($child->online == 1)
                             <span class="uil uil-check-circle text-success"></span>
                         @else
                             <span class="uil uil-times-circle text-danger"></span>
                         @endif
                     </td>
                     <td class="align-middle">
-                        <a class="btn btn-info" href="{{route('user', $user->id)}}">View</a>
-                        <a class="btn btn-dark" href="{{route('userSettings', $user->id)}}">Edit</a>
+                        <a class="btn btn-info" href="{{route('user', $child->id)}}">View</a>
+                        <a class="btn btn-dark" href="{{route('userSettings', $child->id)}}">Edit</a>
                         <a class="btn btn-danger" href="#">Delete</a>
                     </td>
                 </tr>

@@ -84,8 +84,8 @@ class UserController extends Controller
         dd($request);
     }
 
-    public function getUser($id)
+    public static function getUser($id)
     {
-        return User::where('id', '=', $id)->all()->toArray();
+        return User::where('id', '=', $id)->get()->toArray()[0];
     }
 }

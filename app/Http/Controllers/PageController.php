@@ -27,13 +27,15 @@ class PageController extends Controller
     public function user($id)
     {
         $users = UserController::getChilds($id);
-        return view('pages.user', compact('users', 'id'));
+        $user = UserController::getUser($id);
+        return view('pages.user', compact('users', 'user'));
     }
 
     public function settings($id)
     {
         $settings = UserController::getSettings($id);
-        return view('pages.settings', compact('settings', 'id'));
+        $user = UserController::getUser($id);
+        return view('pages.settings', compact('settings', 'user'));
     }
 
     public function create()

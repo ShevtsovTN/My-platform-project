@@ -3,7 +3,9 @@
 @section('title')
 
 @endsection
-
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('settings', $user) }}
+@endsection
 @section('content')
     <ul class="nav nav-pills mb-2" id="myTab" role="tablist">
         @foreach($settings as $index => $items)
@@ -15,7 +17,7 @@
     <div class="tab-content" id="myTabContent">
         @foreach($settings as $index => $items)
             <div class="tab-pane fade @if($index == 'base') show active @endif" id="{{$index}}" role="tabpanel" aria-labelledby="{{$index}}-tab">
-                <form action="{{route('setSettings', $id)}}" id="{{$index}}-settings" method="post">
+                <form action="{{route('setSettings', $user['id'])}}" id="{{$index}}-settings" method="post">
                     @csrf
                     @foreach($items as $item)
                         @switch($item['type'])

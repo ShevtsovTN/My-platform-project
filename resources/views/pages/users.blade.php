@@ -5,6 +5,10 @@
 
 @endsection
 
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('users') }}
+@endsection
+
 @section('content')
     <div class="d-flex align-content-start justify-content-center">
         <table class="table">
