@@ -23,10 +23,15 @@
                         @switch($item['type'])
                             @case('select')
                             <div class="form-group w-25">
-                                <label for="{{$item['name']}}">{{$item['name']}}</label>
+                                <label for="{{$item['name']}}">{{$item['title']}}</label>
                                 <select class="form-control" name="{{$item['name']}}" id="{{$item['name']}}">
                                     @foreach($item['options'] as $i => $option)
-                                        <option value="{{$i}}">{{$option}}</option>
+                                        <option
+                                            value="{{$i}}"
+                                            @if($item['value'] == $i)
+                                                selected
+                                            @endif
+                                        >{{$option}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -34,15 +39,32 @@
 
                             @case('checkbox')
                             <div class="form-check">
-                                <input class="form-check-input" name="{{$item['name']}}" type="checkbox" value="1" id="{{$item['name']}}">
-                                <label class="form-check-label" for="{{$item['name']}}">{{$item['name']}}</label>
+                                <input
+                                    class="form-check-input"
+                                    name="{{$item['name']}}"
+                                    type="checkbox"
+                                    @if($item['value'] == 1)
+                                    checked
+                                    @endif
+                                    id="{{$item['name']}}"
+                                >
+                                <label class="form-check-label" for="{{$item['name']}}">{{$item['title']}}</label>
                             </div>
                             @break
 
                             @default
                             <div class="form-group w-25">
-                                <label for="{{$item['name']}}">{{$item['name']}}</label>
-                                <input type="{{$item['type']}}" class="form-control" name="{{$item['name']}}" id="{{$item['name']}}">
+                                <label for="{{$item['name']}}">{{$item['title']}}</label>
+                                <input
+                                    type="{{$item['type']}}"
+                                    autocomplete="off"
+                                    class="form-control"
+                                    name="{{$item['name']}}"
+                                    id="{{$item['name']}}"
+                                    @if(!empty($item['value']))
+                                    value="{{$item['value']}}"
+                                    @endif
+                                >
                             </div>
                         @endswitch
                     @endforeach

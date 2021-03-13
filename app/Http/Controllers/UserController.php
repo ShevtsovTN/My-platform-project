@@ -75,6 +75,24 @@ class UserController extends Controller
             $settings = $settingsArr[$user['group']];
         } else {
             $settings = $settingsArr['self'];
+            $timezones = [];
+            for ($i = -12 ; $i < 13; $i++) {
+                $timezones['UTC' . ($i >= 0 ? '+'.$i : $i)] = 'UTC' . ($i >= 0 ? '+'.$i : $i) . (!empty(timezone_name_from_abbr('', $i * 3600, 0))
+                    ? ' ' . timezone_name_from_abbr('', $i * 3600, 0)
+                    : '');
+            }
+            foreach ($settings as $index => &$settingsIndex) {
+                foreach ($settingsIndex as $i => &$settingIndex) {
+                    if ($settingIndex['name'] == 'timezone') {
+                        $settingIndex['options'] = $timezones;
+                    }
+                    if (isset($user[$settingIndex['name']])) {
+                        $settingIndex['value'] = $user[$settingIndex['name']];
+                    }
+                }
+                unset($settingIndex);
+            }
+            unset($settingsIndex);
         }
         return $settings;
     }

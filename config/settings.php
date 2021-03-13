@@ -77,9 +77,10 @@ return [
     ],
     'self' => [
         'base' => [
-            ['name' => 'SelfSetting1', 'type' => 'checkbox'],
-            ['name' => 'SelfSetting2', 'type' => 'checkbox'],
-            ['name' => 'SelfSetting3', 'type' => 'checkbox'],
+            ['name' => 'timezone','title' => 'Timezone', 'type' => 'select','options' => []],
+            ['name' => 'email','title' => 'Email', 'type' => 'email'],
+            ['name' => 'email_verified','title' => 'Confirmation of authorization by e-mail', 'type' => 'checkbox'],
+            ['name' => 'password','title' => 'New Password', 'type' => 'password'],
         ]
     ]
 ];

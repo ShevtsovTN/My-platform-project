@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('language', 2);
             $table->float('cash', 12, 2);
             $table->string('email')->unique();
+            $table->tinyInteger('email_verified');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('timezone');
             $table->string('password');
