@@ -37,7 +37,7 @@ class ViewChilds
             $check = $child->id == $id;
             break;
         }
-        if (Auth::check() && Auth::id() != $id && $check) {
+        if (Auth::check() && ($check || Auth::id() == $id)) {
             return $next($request);
         } else {
             return redirect()->route('users');

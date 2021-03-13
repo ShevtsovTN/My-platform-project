@@ -8,7 +8,11 @@
         <ul class="nav flex-column">
             @foreach($menu[\Illuminate\Support\Facades\Auth::user()->group] as $index => $item)
             <li class="nav-item">
-                <a class="nav-link text-dark" href="{{$item['route']}}"><span class="mr-1 {{$item['icon']}}"></span>{{$item['name']}}</a>
+                @if($item['route'] == 'userSettings')
+                    <a class="nav-link text-dark" href="{{route($item['route'], \Illuminate\Support\Facades\Auth::id())}}"><span class="mr-1 {{$item['icon']}}"></span>{{$item['name']}}</a>
+                @else
+                    <a class="nav-link text-dark" href="{{route($item['route'])}}"><span class="mr-1 {{$item['icon']}}"></span>{{$item['name']}}</a>
+                @endif
             </li>
             @endforeach
             <li class="nav-item mt-3">

@@ -71,7 +71,11 @@ class UserController extends Controller
     {
         $user = User::where('id', '=', $id)->limit(1)->get()->toArray()[0];
         $settingsArr = include(config_path('settings.php'));
-        $settings = $settingsArr[$user['group']];
+        if (Auth::id() != $id) {
+            $settings = $settingsArr[$user['group']];
+        } else {
+            $settings = $settingsArr['self'];
+        }
         return $settings;
     }
 

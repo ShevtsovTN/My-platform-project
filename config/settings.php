@@ -18,61 +18,68 @@ return [
     ],
     '2' => [
         'base' => [
-            ['name' => 'AgentSetting1', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'AgentSetting2', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'AgentSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'AgentSetting1', 'type' => 'checkbox'],
+            ['name' => 'AgentSetting2', 'type' => 'checkbox'],
+            ['name' => 'AgentSetting3', 'type' => 'checkbox'],
         ],
     ],
     '3' => [
         'base' => [
-            ['name' => 'DillerSetting1', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'DillerSetting2', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'DillerSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'DillerSetting1', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting2', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting3', 'type' => 'checkbox'],
         ],
         'autocreatehall' => [
-            ['name' => 'DillerSetting1', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'DillerSetting2', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'DillerSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'DillerSetting1', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting2', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting3', 'type' => 'checkbox'],
         ],
         'jackpots' => [
-            ['name' => 'DillerSetting1', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'DillerSetting2', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'DillerSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'DillerSetting1', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting2', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting3', 'type' => 'checkbox'],
         ],
         'casino' => [
-            ['name' => 'DillerSetting1', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'DillerSetting2', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'DillerSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'DillerSetting1', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting2', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting3', 'type' => 'checkbox'],
         ],
     ],
     '4' => [
         'base' => [
-            ['name' => 'HallSetting1', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'HallSetting2', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'HallSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'HallSetting1', 'type' => 'checkbox'],
+            ['name' => 'HallSetting2', 'type' => 'checkbox'],
+            ['name' => 'HallSetting3', 'type' => 'checkbox'],
         ],
         'bonuses' => [
-            ['name' => 'HallSetting1', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'HallSetting2', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'HallSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'HallSetting1', 'type' => 'checkbox'],
+            ['name' => 'HallSetting2', 'type' => 'checkbox'],
+            ['name' => 'HallSetting3', 'type' => 'checkbox'],
         ],
         'gamelabels' => [
-            ['name' => 'HallSetting1', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'HallSetting2', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'HallSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'HallSetting1', 'type' => 'checkbox'],
+            ['name' => 'HallSetting2', 'type' => 'checkbox'],
+            ['name' => 'HallSetting3', 'type' => 'checkbox'],
         ],
         'jackpots' => [
-            ['name' => 'HallSetting1', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'HallSetting2', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'HallSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'HallSetting1', 'type' => 'checkbox'],
+            ['name' => 'HallSetting2', 'type' => 'checkbox'],
+            ['name' => 'HallSetting3', 'type' => 'checkbox'],
         ]
 
     ],
     '5' => [
         'base' => [
-            ['name' => 'TerminalSetting1', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'TerminalSetting2', 'type' => 'uil uil-user', 'format' => '#'],
-            ['name' => 'TerminalSetting3', 'type' => 'uil uil-user', 'format' => '#'],
+            ['name' => 'TerminalSetting1', 'type' => 'checkbox'],
+            ['name' => 'TerminalSetting2', 'type' => 'checkbox'],
+            ['name' => 'TerminalSetting3', 'type' => 'checkbox'],
         ]
     ],
+    'self' => [
+        'base' => [
+            ['name' => 'SelfSetting1', 'type' => 'checkbox'],
+            ['name' => 'SelfSetting2', 'type' => 'checkbox'],
+            ['name' => 'SelfSetting3', 'type' => 'checkbox'],
+        ]
+    ]
 ];

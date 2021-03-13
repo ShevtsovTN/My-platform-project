@@ -2,41 +2,40 @@
 
 return [
     '0' => [
-        ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => '/users'],
-        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => '#'],
-        ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => '#'],
-        ['name' => 'News', 'icon' => 'uil uil-newspaper', 'route' => '#'],
-        ['name' => 'Messages', 'icon' => 'uil uil-envelope-alt', 'route' => '#']
+        ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => 'users'],
+        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'users'],
+        ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => 'userSettings'],
+        ['name' => 'News', 'icon' => 'uil uil-newspaper', 'route' => 'users'],
+        ['name' => 'Messages', 'icon' => 'uil uil-envelope-alt', 'route' => 'users']
     ],
     '1' => [
-        ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => '/users'],
-        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => '#'],
-        ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => '#'],
-        ['name' => 'Balance History', 'icon' => 'uil uil-user', 'route' => '#'],
-        ['name' => 'Settings', 'icon' => 'uil uil-setting', 'route' => '#'],
+        ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => 'users'],
+        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'users'],
+        ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => 'userSettings'],
+        ['name' => 'Balance History', 'icon' => 'uil uil-user', 'route' => 'users'],
     ],
     '2' => [
-        ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => '/users'],
-        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => '#'],
-        ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => '#'],
-        ['name' => 'Balance History', 'icon' => 'uil uil-user', 'route' => '#'],
-        ['name' => 'Sub Dealers', 'icon' => 'uil uil-users-alt', 'route' => '#']
+        ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => 'users'],
+        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'users'],
+        ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => 'userSettings'],
+        ['name' => 'Balance History', 'icon' => 'uil uil-user', 'route' => 'users'],
+        ['name' => 'Sub Dealers', 'icon' => 'uil uil-users-alt', 'route' => 'users']
     ],
     '3' => [
-        ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => '/users'],
-        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => '#'],
-        ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => '#'],
-        ['name' => 'Online Casino Payments', 'icon' => 'uil uil-credit-card', 'route' => '#'],
-        ['name' => 'Engineers', 'icon' => 'uil uil-constructor', 'route' => '#'],
-        ['name' => 'Manage Games List', 'icon' => 'uil uil-icons', 'route' => '#'],
+        ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => 'users'],
+        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'users'],
+        ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => 'userSettings'],
+        ['name' => 'Online Casino Payments', 'icon' => 'uil uil-credit-card', 'route' => 'users'],
+        ['name' => 'Engineers', 'icon' => 'uil uil-constructor', 'route' => 'users'],
+        ['name' => 'Manage Games List', 'icon' => 'uil uil-icons', 'route' => 'users'],
     ],
     '4' => [
-        ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => '/users'],
-        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => '#'],
-        ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => '#'],
-        ['name' => 'Online Casino Payments', 'icon' => 'uil uil-credit-card', 'route' => '#'],
-        ['name' => 'Balance History', 'icon' => 'uil uil-user', 'route' => '#'],
-        ['name' => 'Bonus Promocodes', 'icon' => 'uil uil-award', 'route' => '#'],
-        ['name' => 'Panic', 'icon' => 'uil uil-exclamation-circle', 'route' => '#'],
+        ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => 'users'],
+        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'users'],
+        ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => 'userSettings'],
+        ['name' => 'Online Casino Payments', 'icon' => 'uil uil-credit-card', 'route' => 'users'],
+        ['name' => 'Balance History', 'icon' => 'uil uil-user', 'route' => 'users'],
+        ['name' => 'Bonus Promocodes', 'icon' => 'uil uil-award', 'route' => 'users'],
+        ['name' => 'Panic', 'icon' => 'uil uil-exclamation-circle', 'route' => 'users'],
     ]
 ];
