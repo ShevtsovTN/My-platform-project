@@ -7,6 +7,15 @@
     {{ Breadcrumbs::render('settings', $user) }}
 @endsection
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <ul class="nav nav-pills mb-2" id="myTab" role="tablist">
         @foreach($settings as $index => $items)
             <li class="nav-item mr-3" role="presentation">
@@ -40,6 +49,7 @@
                             @case('checkbox')
                             <div class="form-check">
                                 <input
+                                    onchange="changeCheckboxValue(this)"
                                     class="form-check-input"
                                     name="{{$item['name']}}"
                                     type="checkbox"

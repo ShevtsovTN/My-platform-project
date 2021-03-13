@@ -81,6 +81,7 @@ return [
             ['name' => 'email','title' => 'Email', 'type' => 'email'],
             ['name' => 'email_verified','title' => 'Confirmation of authorization by e-mail', 'type' => 'checkbox'],
             ['name' => 'password','title' => 'New Password', 'type' => 'password'],
+            ['name' => 'password_confirmation','title' => 'Confirm Password', 'type' => 'password'],
         ]
     ]
 ];

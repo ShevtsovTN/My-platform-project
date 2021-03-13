@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'timezone',
+        'email_verified'
     ];
 
     /**
@@ -43,19 +45,6 @@ class User extends Authenticatable
 
     public function settings()
     {
-        /*$relations = [
-            '0' => Admin::class,
-            '1' => SuperAgent::class,
-            '2' => Agent::class,
-            '3' => Diller::class,
-            '4' => Hall::class,
-            '5' => Terminal::class,
-            '6' => SubAgent::class,
-            '8' => SubHall::class,
-            '7' => SubDiller::class
-        ];
-        $class = $relations[Auth::user()->group];
-        return $this->hasOne($class, 'id');*/
         return $this->morphTo();
     }
 }

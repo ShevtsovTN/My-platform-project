@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -100,10 +102,33 @@ class UserController extends Controller
     /**
      * Set user preferences to display on preferences page
      * @param Request $request
+     * @param $id
+     * @return RedirectResponse
      */
-    public static function setSettings(Request $request)
+    public static function setSettings(Request $request, $id)
     {
-        dd($request);
+        $request->validate([
+            'timezone' => 'required|regex:/UTC[-+][0-9]{1,2}/i',
+            'email' => 'email',
+            'password' => 'confirmed'
+        ]);
+        if (Auth::id() == $id) {
+            $user = [];
+            foreach ($request->all() as $index => $value) {
+                if ($index != '_token' && $index != 'password_confirmation' && !is_null($value)) {
+                    if ($index != 'password') {
+                        $user[$index] = $value;
+                    } else {
+                        $user[$index] = Hash::make($value);
+                    }
+                }
+            }
+            if (!isset($request->email_verified)) {
+                $user['email_verified'] = 0;
+            }
+            User::where('id', '=', $id)->update($user);
+        }
+        return redirect()->route('userSettings', $id);
     }
 
     public static function getUser($id)
