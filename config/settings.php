@@ -10,55 +10,47 @@ return [
     ],
     '2' => [
         'base' => [
-            ['name' => 'AgentSetting1','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'AgentSetting2','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'AgentSetting3','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'terminal_balance','title' => 'Allow to change the balance of players', 'type' => 'checkbox'],
+            ['name' => 'disable_edit_bonus_promo','title' => 'Disable editing bonus promotional codes', 'type' => 'checkbox'],
+            ['name' => 'minimum_rtp','title' => 'Minimum RTP', 'type' => 'select', 'options' => [85 => 85, 90 => 90, 95 => 95]],
         ],
     ],
     '3' => [
         'base' => [
-            ['name' => 'DillerSetting1','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting2','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting3','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'terminal_balance','title' => 'Allow to change the balance of players', 'type' => 'checkbox'],
+            ['name' => 'disable_edit_bonus_promo','title' => 'Disable editing bonus promotional codes', 'type' => 'checkbox'],
         ],
         'autocreatehall' => [
-            ['name' => 'DillerSetting1','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting2','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting3','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'cashout_in_game','title' => 'Allow write-offs while playing', 'type' => 'checkbox'],
+            ['name' => 'cashout_all','title' => 'Allow full write-off only', 'type' => 'checkbox'],
         ],
         'jackpots' => [
-            ['name' => 'DillerSetting1','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting2','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting3','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'one_jackpot','title' => 'Global JACKPOT', 'type' => 'checkbox'],
         ],
         'casino' => [
-            ['name' => 'DillerSetting1','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting2','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting3','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'casino_out_payment_visa-mastercard','title' => 'Visa\MasterCard', 'type' => 'checkbox'],
+            ['name' => 'casino_out_payment_qiwi','title' => 'QiWi', 'type' => 'checkbox'],
+            ['name' => 'casino_out_payment_paykassa','title' => 'Paykassa', 'type' => 'checkbox'],
         ],
     ],
     '4' => [
         'base' => [
-            ['name' => 'HallSetting1','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'HallSetting2','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'HallSetting3','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'cashout_in_game','title' => 'Allow write-offs while playing', 'type' => 'checkbox'],
+            ['name' => 'cashout_all','title' => 'Allow full write-off only', 'type' => 'checkbox'],
+            ['name' => 'minimum_rtp','title' => 'Minimum RTP', 'type' => 'select', 'options' => [85 => 85, 90 => 90, 95 => 95]],
         ],
         'bonuses' => [
-            ['name' => 'HallSetting1','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'HallSetting2','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'HallSetting3','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'disable_bonus_promo','title' => 'Disable bonus promotional codes', 'type' => 'checkbox'],
         ],
-        'gamelabels' => [
+        /*'gamelabels' => [
+            ['name' => 'caleta','title' => 'Caleta', 'type' => 'checkbox'],
+            ['name' => 'xgames','title' => 'Xgames', 'type' => 'checkbox'],
+        ],*/
+        /*'jackpots' => [
             ['name' => 'HallSetting1','title' => 'Title', 'type' => 'checkbox'],
             ['name' => 'HallSetting2','title' => 'Title', 'type' => 'checkbox'],
             ['name' => 'HallSetting3','title' => 'Title', 'type' => 'checkbox'],
-        ],
-        'jackpots' => [
-            ['name' => 'HallSetting1','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'HallSetting2','title' => 'Title', 'type' => 'checkbox'],
-            ['name' => 'HallSetting3','title' => 'Title', 'type' => 'checkbox'],
-        ]
-
+        ]*/
     ],
     '5' => [
         'base' => [

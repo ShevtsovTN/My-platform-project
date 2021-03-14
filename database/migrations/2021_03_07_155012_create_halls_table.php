@@ -15,7 +15,10 @@ class CreateHallsTable extends Migration
     {
         Schema::create('halls', function (Blueprint $table) {
             $table->id();
-            $table->string('table');
+            $table->tinyInteger('cashout_in_game')->default(0);
+            $table->tinyInteger('cashout_all')->default(0);
+            $table->tinyInteger('disable_bonus_promo')->default(0);
+            $table->integer('minimum_rtp')->default(85);
             $table->timestamps();
         });
     }

@@ -24,8 +24,14 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/users', [PageController::class, 'users'])->name('users');
+
     Route::get('/create', [PageController::class, 'create'])->name('createUserForm');
     Route::post('/create', [UserController::class, 'create'])->name('create');
+
+    Route::get('/news', [PageController::class, 'news'])->name('news');
+
+    Route::get('/messages', [PageController::class, 'messages'])->name('messages');
+
     Route::middleware(['view.childs'])->group(function () {
         Route::get('/users/{id}', [PageController::class, 'user'])->name('user');
 

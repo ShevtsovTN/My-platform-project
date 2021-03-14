@@ -155,11 +155,19 @@ class UserController extends Controller
         return redirect()->route('userSettings', $id);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public static function getUser($id)
     {
         return User::where('id', '=', $id)->get()->toArray()[0];
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     private static function getAllSettingsList($id)
     {
         $settingsList = [
