@@ -1,78 +1,70 @@
 <?php
 
 return [
-    '0' => [
-        'base' => [
-            ['name' => 'AdminSetting1', 'type' => 'select', 'options' => [0 => 'off', 1 => 1, 2 => 2]],
-            ['name' => 'AdminSetting2', 'type' => 'checkbox'],
-            ['name' => 'AdminSetting3', 'type' => 'text'],
-            ['name' => 'AdminSetting4', 'type' => 'number', 'format' => 'float'],
-        ]
-    ],
+    '0' => [],
     '1' => [
         'base' => [
-            ['name' => 'SuperagentBaseSetting1', 'type' => 'select', 'options' => [0 => 'off', 1 => 1, 2 => 2]],
-            ['name' => 'SuperagentBaseSetting2', 'type' => 'checkbox'],
-            ['name' => 'SuperagentBaseSetting3', 'type' => 'text'],
+            ['name' => 'terminal_balance','title' => 'Allow to change the balance of players', 'type' => 'checkbox'],
+            ['name' => 'disable_edit_bonus_promo','title' => 'Disable editing bonus promotional codes', 'type' => 'checkbox'],
         ],
     ],
     '2' => [
         'base' => [
-            ['name' => 'AgentSetting1', 'type' => 'checkbox'],
-            ['name' => 'AgentSetting2', 'type' => 'checkbox'],
-            ['name' => 'AgentSetting3', 'type' => 'checkbox'],
+            ['name' => 'AgentSetting1','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'AgentSetting2','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'AgentSetting3','title' => 'Title', 'type' => 'checkbox'],
         ],
     ],
     '3' => [
         'base' => [
-            ['name' => 'DillerSetting1', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting2', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting3', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting1','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting2','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting3','title' => 'Title', 'type' => 'checkbox'],
         ],
         'autocreatehall' => [
-            ['name' => 'DillerSetting1', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting2', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting3', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting1','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting2','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting3','title' => 'Title', 'type' => 'checkbox'],
         ],
         'jackpots' => [
-            ['name' => 'DillerSetting1', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting2', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting3', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting1','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting2','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting3','title' => 'Title', 'type' => 'checkbox'],
         ],
         'casino' => [
-            ['name' => 'DillerSetting1', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting2', 'type' => 'checkbox'],
-            ['name' => 'DillerSetting3', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting1','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting2','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'DillerSetting3','title' => 'Title', 'type' => 'checkbox'],
         ],
     ],
     '4' => [
         'base' => [
-            ['name' => 'HallSetting1', 'type' => 'checkbox'],
-            ['name' => 'HallSetting2', 'type' => 'checkbox'],
-            ['name' => 'HallSetting3', 'type' => 'checkbox'],
+            ['name' => 'HallSetting1','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'HallSetting2','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'HallSetting3','title' => 'Title', 'type' => 'checkbox'],
         ],
         'bonuses' => [
-            ['name' => 'HallSetting1', 'type' => 'checkbox'],
-            ['name' => 'HallSetting2', 'type' => 'checkbox'],
-            ['name' => 'HallSetting3', 'type' => 'checkbox'],
+            ['name' => 'HallSetting1','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'HallSetting2','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'HallSetting3','title' => 'Title', 'type' => 'checkbox'],
         ],
         'gamelabels' => [
-            ['name' => 'HallSetting1', 'type' => 'checkbox'],
-            ['name' => 'HallSetting2', 'type' => 'checkbox'],
-            ['name' => 'HallSetting3', 'type' => 'checkbox'],
+            ['name' => 'HallSetting1','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'HallSetting2','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'HallSetting3','title' => 'Title', 'type' => 'checkbox'],
         ],
         'jackpots' => [
-            ['name' => 'HallSetting1', 'type' => 'checkbox'],
-            ['name' => 'HallSetting2', 'type' => 'checkbox'],
-            ['name' => 'HallSetting3', 'type' => 'checkbox'],
+            ['name' => 'HallSetting1','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'HallSetting2','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'HallSetting3','title' => 'Title', 'type' => 'checkbox'],
         ]
 
     ],
     '5' => [
         'base' => [
-            ['name' => 'TerminalSetting1', 'type' => 'checkbox'],
-            ['name' => 'TerminalSetting2', 'type' => 'checkbox'],
-            ['name' => 'TerminalSetting3', 'type' => 'checkbox'],
+            ['name' => 'TerminalSetting1','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'TerminalSetting2','title' => 'Title', 'type' => 'checkbox'],
+            ['name' => 'TerminalSetting3','title' => 'Title', 'type' => 'checkbox'],
         ]
     ],
     'self' => [

@@ -72,30 +72,41 @@ class UserController extends Controller
     public static function getSettings($id)
     {
         $user = User::where('id', '=', $id)->limit(1)->get()->toArray()[0];
+        $settings = [];
         $settingsArr = include(config_path('settings.php'));
         if (Auth::id() != $id) {
-            $settings = $settingsArr[$user['group']];
+            $additionalSettings = User::find($id)->settings;
+            foreach ($settingsArr[$user['group']] as $index => $item) {
+                if ($index == 'base') {
+                    $settings['base'] = array_merge($settingsArr['self']['base'], $settingsArr[$user['group']]['base']);
+                } else {
+                    $settings[$index] = $settingsArr[$user['group']][$index];
+                }
+            }
         } else {
             $settings = $settingsArr['self'];
-            $timezones = [];
-            for ($i = -12 ; $i < 13; $i++) {
-                $timezones['UTC' . ($i >= 0 ? '+'.$i : $i)] = 'UTC' . ($i >= 0 ? '+'.$i : $i) . (!empty(timezone_name_from_abbr('', $i * 3600, 0))
+        }
+        $timezones = [];
+        for ($i = -12; $i < 13; $i++) {
+            $timezones['UTC' . ($i >= 0 ? '+' . $i : $i)] = 'UTC' . ($i >= 0 ? '+' . $i : $i) . (!empty(timezone_name_from_abbr('', $i * 3600, 0))
                     ? ' ' . timezone_name_from_abbr('', $i * 3600, 0)
                     : '');
-            }
-            foreach ($settings as $index => &$settingsIndex) {
-                foreach ($settingsIndex as $i => &$settingIndex) {
-                    if ($settingIndex['name'] == 'timezone') {
-                        $settingIndex['options'] = $timezones;
-                    }
-                    if (isset($user[$settingIndex['name']])) {
-                        $settingIndex['value'] = $user[$settingIndex['name']];
-                    }
-                }
-                unset($settingIndex);
-            }
-            unset($settingsIndex);
         }
+        foreach ($settings as $index => &$settingsIndex) {
+            foreach ($settingsIndex as $i => &$settingIndex) {
+                if (isset($timezones) && $settingIndex['name'] == 'timezone') {
+                    $settingIndex['options'] = $timezones;
+                }
+                if (isset($user[$settingIndex['name']])) {
+                    $settingIndex['value'] = $user[$settingIndex['name']];
+                }
+                if (isset($additionalSettings) && isset($additionalSettings->{$settingIndex['name']})) {
+                    $settingIndex['value'] = $additionalSettings->{$settingIndex['name']};
+                }
+            }
+            unset($settingIndex);
+        }
+        unset($settingsIndex);
         return $settings;
     }
 
@@ -112,21 +123,34 @@ class UserController extends Controller
             'email' => 'email',
             'password' => 'confirmed'
         ]);
-        if (Auth::id() == $id) {
-            $user = [];
-            foreach ($request->all() as $index => $value) {
-                if ($index != '_token' && $index != 'password_confirmation' && !is_null($value)) {
-                    if ($index != 'password') {
-                        $user[$index] = $value;
-                    } else {
-                        $user[$index] = Hash::make($value);
-                    }
+        $settings = self::getAllSettingsList($id);
+        $setSelfSettings = [];
+        foreach ($settings['self'] as $i => $item) {
+            if (isset($request->{$item['name']})) {
+                if ($item['name'] == 'password_confirmation') {
+                    continue;
+                }
+                if ($item['name'] == 'password') {
+                    $setSelfSettings[$item['name']] = Hash::make($request->{$item['name']});
+                } else {
+                    $setSelfSettings[$item['name']] = $request->{$item['name']};
+                }
+            } elseif (isset($item['type']) && $item['type'] == 'checkbox') {
+                $setSelfSettings[$item['name']] = 0;
+            }
+        }
+        User::where('id', '=', $id)->update($setSelfSettings);
+        if (Auth::id() != $id) {
+            $setAdditionSettings = [];
+            foreach ($settings['additional'] as $i => $item) {
+                if (isset($request->{$item['name']})) {
+                    $setAdditionSettings[$item['name']] = $request->{$item['name']};
+                } elseif ($item['type'] == 'checkbox') {
+                    $setAdditionSettings[$item['name']] = 0;
                 }
             }
-            if (!isset($request->email_verified)) {
-                $user['email_verified'] = 0;
-            }
-            User::where('id', '=', $id)->update($user);
+            $user = User::find($id);
+            $user->settings()->update($setAdditionSettings);
         }
         return redirect()->route('userSettings', $id);
     }
@@ -134,5 +158,40 @@ class UserController extends Controller
     public static function getUser($id)
     {
         return User::where('id', '=', $id)->get()->toArray()[0];
+    }
+
+    private static function getAllSettingsList($id)
+    {
+        $settingsList = [
+            'self' => [],
+            'additional' => []
+        ];
+        $settingsArr = include(config_path('settings.php'));
+        $group = User::find($id)->group;
+        foreach ($settingsArr['self']['base'] as $index => $item) {
+            if ($item['type'] == 'checkbox') {
+                $settingsList['self'][] = [
+                    'name' => $item['name'],
+                    'type' => $item['type'],
+                ];
+            } else {
+                $settingsList['self'][] = ['name' => $item['name']];
+            }
+        }
+        if (Auth::id() != $id) {
+            foreach ($settingsArr[$group] as $i => $items) {
+                foreach ($items as $index => $item) {
+                    if ($item['type'] == 'checkbox') {
+                        $settingsList['additional'][] = [
+                            'name' => $item['name'],
+                            'type' => $item['type'],
+                        ];
+                    } else {
+                        $settingsList['additional'][] = ['name' => $item['name']];
+                    }
+                }
+            }
+        }
+        return $settingsList;
     }
 }

@@ -15,7 +15,8 @@ class CreateSuperagentsTable extends Migration
     {
         Schema::create('superagents', function (Blueprint $table) {
             $table->id();
-            $table->string('table');
+            $table->tinyInteger('terminal_balance')->default(0);
+            $table->tinyInteger('disable_edit_bonus_promo')->default(0);
             $table->timestamps();
         });
     }
