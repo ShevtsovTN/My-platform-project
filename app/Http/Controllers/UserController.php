@@ -119,7 +119,7 @@ class UserController extends Controller
     public static function setSettings(Request $request, $id)
     {
         $request->validate([
-            'timezone' => 'required|regex:/UTC[-+][0-9]{1,2}/i',
+            'timezone' => 'regex:/UTC[-+][0-9]{1,2}/i',
             'email' => 'email',
             'password' => 'confirmed'
         ]);
@@ -135,18 +135,16 @@ class UserController extends Controller
                 } else {
                     $setSelfSettings[$item['name']] = $request->{$item['name']};
                 }
-            } elseif (isset($item['type']) && $item['type'] == 'checkbox') {
-                $setSelfSettings[$item['name']] = 0;
             }
         }
-        User::where('id', '=', $id)->update($setSelfSettings);
+        if (isset($request->base) && $request->base == 'send') {
+            User::where('id', '=', $id)->update($setSelfSettings);
+        }
         if (Auth::id() != $id) {
             $setAdditionSettings = [];
             foreach ($settings['additional'] as $i => $item) {
                 if (isset($request->{$item['name']})) {
                     $setAdditionSettings[$item['name']] = $request->{$item['name']};
-                } elseif ($item['type'] == 'checkbox') {
-                    $setAdditionSettings[$item['name']] = 0;
                 }
             }
             $user = User::find($id);

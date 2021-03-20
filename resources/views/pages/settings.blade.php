@@ -19,6 +19,7 @@
             <div class="tab-pane fade @if($index == 'base') show active @endif" id="{{$index}}" role="tabpanel" aria-labelledby="{{$index}}-tab">
                 <form action="{{route('setSettings', $user['id'])}}" id="{{$index}}-settings" method="post">
                     @csrf
+                    <input type="hidden" name="{{$index}}" value="send">
                     @foreach($items as $item)
                         @switch($item['type'])
                             @case('select')
@@ -39,6 +40,7 @@
 
                             @case('checkbox')
                             <div class="form-check">
+                                <input type="hidden" name="{{$item['name']}}" value="0">
                                 <input
                                     onchange="changeCheckboxValue(this)"
                                     class="form-check-input"
@@ -47,8 +49,6 @@
                                     @if($item['value'] == 1)
                                         checked
                                         value="1"
-                                    @else
-                                        value="0"
                                     @endif
                                     id="{{$item['name']}}"
                                 >
