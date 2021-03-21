@@ -5,8 +5,12 @@
             <img src="#" class="text-dark" width="30" height="30" alt="AdminPanel">
         </a>
         <div class="w-50 d-flex align-items-center justify-content-around">
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="form-inline" action="{{route('search')}}" method="post">
+                @csrf
+                <input class="form-control @error('title') is-invalid @enderror mr-sm-2" type="search" name="searchUser" placeholder="Search" aria-label="Search">
+                @error('searchUser')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
                 <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
             </form>
             <x-messages />

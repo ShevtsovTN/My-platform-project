@@ -201,4 +201,26 @@ class UserController extends Controller
         }
         return $settingsList;
     }
+
+    /**
+     * Find user by login
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function searchUser(Request $request)
+    {
+        $request->validate([
+            'searchUser' => 'required'
+        ]);
+        $childs = self::getChilds();
+        foreach ($childs as $index => $child) {
+            if ($request->searchUser == $child->login) {
+                return redirect()->route('userSettings', $child->id);
+            } else {
+                $request->session()->flash('error', 'User not found');
+                return redirect()->back();
+            }
+        }
+    }
 }

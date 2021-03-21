@@ -40,10 +40,9 @@ Route::middleware(['auth'])->group(function () {
     //Route::get('/messages/{id}/edit', [MessagesController::class, 'edit'])->name('editMessage');
     Route::put('/messages/{id}', [MessagesController::class, 'update'])->name('updateMessage');
     Route::delete('/messages/{id}', [MessagesController::class, 'destroy'])->name('deleteMessage');
-
+    Route::post('/search', [UserController::class, 'searchUser'])->name('search');
     Route::middleware(['view.childs'])->group(function () {
         Route::get('/users/{id}', [PageController::class, 'user'])->name('user');
-
         Route::get('/users/{id}/settings', [PageController::class, 'settings'])->name('userSettings');
         Route::post('/users/{id}/settings', [UserController::class, 'setSettings'])->name('setSettings');
     });
