@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -30,7 +31,13 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/news', [PageController::class, 'news'])->name('news');
 
-    Route::get('/messages', [PageController::class, 'messages'])->name('messages');
+    Route::get('/messages', [MessagesController::class, 'index'])->name('messagesList');
+    Route::get('/messages/create', [MessagesController::class, 'create'])->name('createMessage');
+    Route::post('/messages', [MessagesController::class, 'store'])->name('storeMessages');
+    Route::get('/messages/{id}', [MessagesController::class, 'show'])->name('showMessage');
+    //Route::get('/messages/{id}/edit', [MessagesController::class, 'edit'])->name('editMessage');
+    Route::put('/messages/{id}', [MessagesController::class, 'update'])->name('updateMessage');
+    Route::delete('/messages/{id}', [MessagesController::class, 'destroy'])->name('deleteMessage');
 
     Route::middleware(['view.childs'])->group(function () {
         Route::get('/users/{id}', [PageController::class, 'user'])->name('user');

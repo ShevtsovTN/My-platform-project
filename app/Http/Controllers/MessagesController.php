@@ -2,57 +2,88 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Message;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class MessagesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
-        //
+        $messages = Message::join('users', 'messages.fromId', '=', 'users.id')
+            ->select('messages.id', 'messages.fromId', 'messages.subject', 'messages.read', 'messages.created_at', 'users.login')
+            ->where('messages.toId', '=', Auth::id())
+            ->get()
+            ->toArray();
+        return view('pages.messages.messages', compact('messages'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
-        //
+        return view('pages.messages.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'to' => 'required',
+            'subject' => 'required',
+            'text' => 'required'
+        ]);
+        $toId = User::select('id')->where('login', '=', $request->to)->get()->toArray()[0]['id'];
+        if (!empty($toId) && Auth::check()) {
+            $user = Message::insert([
+                'fromId' => Auth::id(),
+                'toId' => $toId,
+                'read' => false,
+                'subject' => $request->subject,
+                'text' => $request->text,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ]);
+        }
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
-        //
+        $message = Message::join('users', 'messages.fromId', '=', 'users.id')
+            ->select('messages.*', 'users.login')
+            ->where('messages.id', '=', $id)
+            ->get()
+            ->toArray()[0];
+        return view('pages.messages.show', compact('message'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -62,23 +93,34 @@ class MessagesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $id)
     {
-        //
+        if (isset($request->read) && $request->read == 'true') {
+            Message::where('id', '=', $id)->update(['read' => true]);
+        }
+        return redirect()->route('messagesList');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {
-        //
+        Message::where('id', '=', $id)->delete();
+        return redirect()->route('messagesList');
+    }
+
+    public static function countNewMessages()
+    {
+        return Message::where('toId', '=', Auth::id())
+            ->where('read', '!=', true)
+            ->count();
     }
 }

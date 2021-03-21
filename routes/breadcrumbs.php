@@ -14,3 +14,18 @@ Breadcrumbs::for('settings', function ($trail, $user) {
     $trail->parent('user', $user);
     $trail->push('Settings', route('userSettings', $user['id']));
 });
+Breadcrumbs::for('messagesList', function ($trail) {
+    $trail->push('Messages', route('messagesList'));
+});
+Breadcrumbs::for('createMessage', function ($trail) {
+    $trail->parent('messagesList');
+    $trail->push('Create Message', route('createMessage'));
+});
+Breadcrumbs::for('showMessage', function ($trail, $message) {
+    $trail->parent('messagesList');
+    $trail->push($message['subject'], route('showMessage', $message));
+});
+Breadcrumbs::for('editMessage', function ($trail, $message) {
+    $trail->parent('messagesList');
+    $trail->push($message, route('editMessage', $message));
+});

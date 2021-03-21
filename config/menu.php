@@ -6,7 +6,7 @@ return [
         ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'users'],
         ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => 'userSettings'],
         ['name' => 'News', 'icon' => 'uil uil-newspaper', 'route' => 'users'],
-        ['name' => 'Messages', 'icon' => 'uil uil-envelope-alt', 'route' => 'users']
+        ['name' => 'Messages', 'icon' => 'uil uil-envelope-alt', 'route' => 'messagesList']
     ],
     '1' => [
         ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => 'users'],

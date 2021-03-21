@@ -15707,6 +15707,17 @@ a {
   border-bottom: 1px solid #343a40;
 }
 
+.message-icon, .new-icon {
+  font-size: 1.65rem;
+}
+
+.count-messages {
+  position: relative;
+  left: -15px;
+  top: 3px;
+  font-size: 0.7rem;
+}
+
 .sidebar_user-menu {
   min-height: 70vh;
 }

@@ -25,7 +25,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-        $menu = include(config_path('menu.php'));
-        View::share('menu', $menu);
     }
 }
