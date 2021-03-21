@@ -14,6 +14,11 @@ Breadcrumbs::for('settings', function ($trail, $user) {
     $trail->parent('user', $user);
     $trail->push('Settings', route('userSettings', $user['id']));
 });
+Breadcrumbs::for('createUser', function ($trail) {
+    $trail->parent('users');
+    $trail->push('Create User', route('createUserForm'));
+});
+
 Breadcrumbs::for('messagesList', function ($trail) {
     $trail->push('Messages', route('messagesList'));
 });

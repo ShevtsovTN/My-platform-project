@@ -32,7 +32,7 @@
                                     @foreach($item['options'] as $i => $option)
                                         <option
                                             value="{{$i}}"
-                                            @if($item['value'] == $i)
+                                            @if(!empty($item['value']) && $item['value'] == $i)
                                                 selected
                                             @endif
                                         >{{$option}}</option>
@@ -49,7 +49,7 @@
                                     class="form-check-input"
                                     name="{{$item['name']}}"
                                     type="checkbox"
-                                    @if($item['value'] == 1)
+                                    @if(!empty($item['value']) && $item['value'] == 1)
                                         checked
                                         value="1"
                                     @endif

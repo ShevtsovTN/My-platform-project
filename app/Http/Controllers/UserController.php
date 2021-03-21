@@ -30,10 +30,40 @@ class UserController extends Controller
     /**
      * Create user
      * @param Request $request
+     * @return RedirectResponse
      */
     public function create(Request $request)
     {
-
+        $request->validate([
+            'password' => 'required|confirmed',
+            'login' => 'required|unique:users',
+            'group' => 'required',
+        ]);
+        $relationsArr = [
+            0 => 'App\\Models\\Admin',
+            1 => 'App\\Models\\SuperAgent',
+            2 => 'App\\Models\\Agent',
+            3 => 'App\\Models\\Diller',
+            4 => 'App\\Models\\Hall',
+            5 => 'App\\Models\\Terminal',
+        ];
+        $relations = $relationsArr[$request->group]::create();
+        if (!empty($relations->id)) {
+            User::insert([
+                'parent' => Auth::id(),
+                'group' => $request->group,
+                'login' => $request->login,
+                'password' => Hash::make($request->password),
+                'settings_type' => $relationsArr[$request->group],
+                'settings_id' => $relations->id,
+                'timezone' => 'UTC+0',
+                'email_verified' => 0,
+            ]);
+            $request->session()->flash('success', 'User created');
+        } else {
+            $request->session()->flash('error', 'Error while creating user');
+        }
+        return redirect()->back();
     }
 
     /**

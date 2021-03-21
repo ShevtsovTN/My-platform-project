@@ -40,50 +40,6 @@ class PageController extends Controller
 
     public function create()
     {
-        $group = Auth::user()->group;
-        switch ($group) {
-            case 0:
-                $fields = [
-                   'creatableUsersGroups' => [
-                       1 => 'superagent',
-                       2 => 'agent',
-                       3 => 'diller',
-                       4 => 'hall',
-                       5 => 'terminal'
-                   ]
-                ];
-                break;
-            case 1:
-                $fields = [
-                    'creatableUsersGroups' => [
-                        2 => 'agent'
-                    ]
-                ];
-                break;
-            case 2:
-                $fields = [
-                    'creatableUsersGroups' => [
-                        3 => 'diller'
-                    ]
-                ];
-                break;
-            case 3:
-                $fields = [
-                    'creatableUsersGroups' => [
-                        4 => 'hall'
-                    ]
-                ];
-                break;
-            case 4:
-                $fields = [
-                    'creatableUsersGroups' => [
-                        5 => 'terminal'
-                    ]
-                ];
-                break;
-            default:
-                break;
-        }
-        return view('pages.createuser', compact('fields'));
+        return view('pages.createuser');
     }
 }

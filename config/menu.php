@@ -3,27 +3,27 @@
 return [
     '0' => [
         ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => 'users'],
-        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'users'],
+        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'createUserForm'],
         ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => 'userSettings'],
         ['name' => 'News', 'icon' => 'uil uil-newspaper', 'route' => 'users'],
         ['name' => 'Messages', 'icon' => 'uil uil-envelope-alt', 'route' => 'messagesList']
     ],
     '1' => [
         ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => 'users'],
-        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'users'],
+        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'createUserForm'],
         ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => 'userSettings'],
         ['name' => 'Balance History', 'icon' => 'uil uil-user', 'route' => 'users'],
     ],
     '2' => [
         ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => 'users'],
-        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'users'],
+        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'createUserForm'],
         ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => 'userSettings'],
         ['name' => 'Balance History', 'icon' => 'uil uil-user', 'route' => 'users'],
         ['name' => 'Sub Dealers', 'icon' => 'uil uil-users-alt', 'route' => 'users']
     ],
     '3' => [
         ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => 'users'],
-        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'users'],
+        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'createUserForm'],
         ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => 'userSettings'],
         ['name' => 'Online Casino Payments', 'icon' => 'uil uil-card-atm', 'route' => 'users'],
         ['name' => 'Engineers', 'icon' => 'uil uil-constructor', 'route' => 'users'],
@@ -31,7 +31,7 @@ return [
     ],
     '4' => [
         ['name' => 'Users', 'icon' => 'uil uil-user', 'route' => 'users'],
-        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'users'],
+        ['name' => 'Create Users', 'icon' => 'uil uil-user-plus', 'route' => 'createUserForm'],
         ['name' => 'Settings', 'icon' => 'uil uil-cog', 'route' => 'userSettings'],
         ['name' => 'Online Casino Payments', 'icon' => 'uil uil-card-atm', 'route' => 'users'],
         ['name' => 'Balance History', 'icon' => 'uil uil-user', 'route' => 'users'],

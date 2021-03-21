@@ -4,9 +4,9 @@
 @section('title')
 
 @endsection
-
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('createUser') }}
+@endsection
 @section('content')
-    <form action="{{route('create')}}" method="post">
-
-    </form>
+    <x-create-user-form />
     @endsection

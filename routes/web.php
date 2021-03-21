@@ -27,7 +27,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/users', [PageController::class, 'users'])->name('users');
 
     Route::get('/create', [PageController::class, 'create'])->name('createUserForm');
-    Route::post('/create', [UserController::class, 'create'])->name('create');
+    Route::post('/create', [UserController::class, 'create'])->name('createUser');
+    Route::post('/delete', [UserController::class, 'delete'])->name('deleteUser');
 
     Route::get('/news', [PageController::class, 'news'])->name('news');
 
