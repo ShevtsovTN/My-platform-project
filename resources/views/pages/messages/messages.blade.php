@@ -40,7 +40,9 @@
             @endforeach
         </tbody>
     </table>
+    @if($group == 0)
     <div class="">
         <a class="btn btn-dark mt-3" href="{{route('createMessage')}}">New Message</a>
     </div>
+    @endif
     @endsection

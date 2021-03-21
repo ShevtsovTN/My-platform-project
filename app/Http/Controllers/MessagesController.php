@@ -22,7 +22,8 @@ class MessagesController extends Controller
             ->where('messages.toId', '=', Auth::id())
             ->get()
             ->toArray();
-        return view('pages.messages.messages', compact('messages'));
+        $group = Auth::user()->group;
+        return view('pages.messages.messages', compact('messages', 'group'));
     }
 
     /**

@@ -32,8 +32,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/news', [PageController::class, 'news'])->name('news');
 
     Route::get('/messages', [MessagesController::class, 'index'])->name('messagesList');
-    Route::get('/messages/create', [MessagesController::class, 'create'])->name('createMessage');
-    Route::post('/messages', [MessagesController::class, 'store'])->name('storeMessages');
+    Route::middleware(['admin.view'])->group(function () {
+        Route::get('/messages/create', [MessagesController::class, 'create'])->name('createMessage');
+        Route::post('/messages', [MessagesController::class, 'store'])->name('storeMessages');
+    });
     Route::get('/messages/{id}', [MessagesController::class, 'show'])->name('showMessage');
     //Route::get('/messages/{id}/edit', [MessagesController::class, 'edit'])->name('editMessage');
     Route::put('/messages/{id}', [MessagesController::class, 'update'])->name('updateMessage');
