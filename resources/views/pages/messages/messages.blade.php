@@ -25,10 +25,16 @@
             <td class="align-middle">{{$message['subject']}}</td>
             <td class="align-middle">{{date('Y-m-d H:i:s', strtotime($message['created_at']))}}</td>
             <td class="align-middle">
-                <a class="btn btn-info" href="{{route('showMessage', $message['id'])}}">View</a>
-                @if($message['read'] == 1)
-                    <a class="btn btn-danger" href="{{route('deleteMessage', $message['id'])}}">Delete</a>
-                @endif
+                <div class="d-flex align-items-center justify-content-start">
+                    <a class="btn btn-info mr-2" href="{{route('showMessage', $message['id'])}}">View</a>
+                    @if($message['read'] == 1)
+                        <form id="deleteForm" name="deleteForm" action="{{route('deleteMessage', $message['id'])}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" form="deleteForm" class="btn btn-danger">Delete</button>
+                        </form>
+                    @endif
+                </div>
             </td>
         </tr>
             @endforeach

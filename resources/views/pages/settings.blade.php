@@ -25,7 +25,10 @@
                             @case('select')
                             <div class="form-group w-25">
                                 <label for="{{$item['name']}}">{{$item['title']}}</label>
-                                <select class="form-control" name="{{$item['name']}}" id="{{$item['name']}}">
+                                <select
+                                    class="form-control"
+                                    name="{{$item['name']}}" id="{{$item['name']}}"
+                                >
                                     @foreach($item['options'] as $i => $option)
                                         <option
                                             value="{{$i}}"

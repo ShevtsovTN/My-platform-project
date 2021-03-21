@@ -17,6 +17,7 @@
         @include('components.sidebar')
     </div>
     <div class="col-9 admin-content p-4">
+        <x-alert />
         <div class="mb-4">
             @yield('breadcrumbs')
         </div>

@@ -59,6 +59,9 @@ class MessagesController extends Controller
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
+            $request->session()->flash('success', 'Message created');
+        } else {
+            $request->session()->flash('error', 'Error creating message');
         }
         return redirect()->back();
     }
@@ -101,6 +104,9 @@ class MessagesController extends Controller
     {
         if (isset($request->read) && $request->read == 'true') {
             Message::where('id', '=', $id)->update(['read' => true]);
+            $request->session()->flash('success', 'Message read');
+        } else {
+            $request->session()->flash('error', 'Error reading message');
         }
         return redirect()->route('messagesList');
     }
@@ -108,15 +114,22 @@ class MessagesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Request $request
+     * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         Message::where('id', '=', $id)->delete();
+        $request->session()->flash('success', 'Message deleted');
         return redirect()->route('messagesList');
     }
 
+    /**
+     * Get count new messages
+     *
+     * @return mixed
+     */
     public static function countNewMessages()
     {
         return Message::where('toId', '=', Auth::id())

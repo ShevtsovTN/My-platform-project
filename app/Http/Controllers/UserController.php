@@ -150,6 +150,7 @@ class UserController extends Controller
             $user = User::find($id);
             $user->settings()->update($setAdditionSettings);
         }
+        $request->session()->flash('success', 'Settings have been saved');
         return redirect()->route('userSettings', $id);
     }
 
