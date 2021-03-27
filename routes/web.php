@@ -28,7 +28,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/create', [PageController::class, 'create'])->name('createUserForm');
     Route::post('/create', [UserController::class, 'create'])->name('createUser');
-    Route::post('/delete', [UserController::class, 'delete'])->name('deleteUser');
+
 
     Route::get('/news', [PageController::class, 'news'])->name('news');
 
@@ -46,5 +46,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/users/{id}', [PageController::class, 'user'])->name('user');
         Route::get('/users/{id}/settings', [PageController::class, 'settings'])->name('userSettings');
         Route::post('/users/{id}/settings', [UserController::class, 'setSettings'])->name('setSettings');
+        Route::get('/delete/{id}', [PageController::class, 'delete'])->name('deleteUserForm');
+        Route::middleware(['delete.user'])->group(function () {
+            Route::post('/delete', [UserController::class, 'delete'])->name('deleteUser');
+        });
     });
 });

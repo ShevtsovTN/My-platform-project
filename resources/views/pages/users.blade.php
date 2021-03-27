@@ -41,7 +41,7 @@
                         <td class="align-middle">
                             <a class="btn btn-info" href="{{route('user', $user->id)}}">View</a>
                             <a class="btn btn-dark" href="{{route('userSettings', $user->id)}}">Edit</a>
-                            <a class="btn btn-danger" href="#">Delete</a>
+                            <a class="btn btn-danger" href="{{route('deleteUserForm', $user->id)}}">Delete</a>
                         </td>
                     </tr>
                     @endforeach

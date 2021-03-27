@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\AdminView;
+use App\Http\Middleware\deleteUsers;
 use App\Http\Middleware\ViewChilds;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -65,6 +66,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'view.childs' => ViewChilds::class,
-        'admin.view' => AdminView::class
+        'admin.view' => AdminView::class,
+        'delete.user' => DeleteUsers::class,
     ];
 }

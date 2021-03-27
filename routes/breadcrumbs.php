@@ -18,6 +18,10 @@ Breadcrumbs::for('createUser', function ($trail) {
     $trail->parent('users');
     $trail->push('Create User', route('createUserForm'));
 });
+Breadcrumbs::for('deleteUser', function ($trail, $login) {
+    $trail->parent('users');
+    $trail->push('Deleting a user ' . $login, route('createUserForm'));
+});
 
 Breadcrumbs::for('messagesList', function ($trail) {
     $trail->push('Messages', route('messagesList'));

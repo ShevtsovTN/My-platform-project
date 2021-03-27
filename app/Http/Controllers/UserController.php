@@ -68,10 +68,23 @@ class UserController extends Controller
 
     /**
      * Delete user
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function delete()
+    public function delete(Request $request)
     {
-
+        $request->validate([
+            'id' => 'required'
+        ]);
+        $user = User::find($request->id);
+        if (!empty($user)) {
+            $user->settings()->delete();
+            User::destroy($request->id);
+            $request->session()->flash('success', 'User deleted');
+            return redirect()->route('users');
+        }
+        $request->session()->flash('error', 'User was not deleted');
+        return redirect()->route('users');
     }
 
     /**
