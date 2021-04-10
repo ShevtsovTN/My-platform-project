@@ -38,3 +38,8 @@ Breadcrumbs::for('editMessage', function ($trail, $message) {
     $trail->parent('messagesList');
     $trail->push($message, route('editMessage', $message));
 });
+
+Breadcrumbs::for('balance', function ($trail, $login) {
+    $trail->parent('users');
+    $trail->push('User balance ' . $login, route('user', $login));
+});

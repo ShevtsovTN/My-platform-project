@@ -30,7 +30,7 @@
                         <td class="align-middle">{{$user->login}}</td>
                         <td class="align-middle">{{$user->email}}</td>
                         <td class="align-middle">{{$user->currency}}</td>
-                        <td class="align-middle">{{$user->cash}}</td>
+                        <td class="align-middle"><a class="" href="{{route('balanceUser',$user->id)}}">{{$user->cash}} <span class="uil uil-bill"></span></a></td>
                         <td class="align-middle">
                             @if($user->online == 1)
                                 <span class="uil uil-check-circle text-success"></span>

@@ -28,7 +28,7 @@
                     <td class="align-middle">{{$child->login}}</td>
                     <td class="align-middle">{{$child->email}}</td>
                     <td class="align-middle">{{$child->currency}}</td>
-                    <td class="align-middle">{{$child->cash}}</td>
+                    <td class="align-middle"><a class="" href="{{route('balanceUser',$child->id)}}">{{$child->cash}} <span class="uil uil-bill"></span></a></td>
                     <td class="align-middle">
                         @if($child->online == 1)
                             <span class="uil uil-check-circle text-success"></span>

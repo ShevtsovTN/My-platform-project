@@ -5,27 +5,47 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
+    /**
+     * Login form
+     *
+     * @return Factory|View
+     */
     public function login()
     {
         return view('pages.auth.login');
     }
 
+    /**
+     * Main page
+     *
+     * @return Factory|View
+     */
     public function main()
     {
         return view('pages.main');
     }
 
+    /**
+     * Page users
+     *
+     * @return Factory|View
+     */
     public function users()
     {
         $users = UserController::getChilds();
         return view('pages.users', compact('users'));
     }
 
+    /**
+     * User`s page
+     *
+     * @param $id
+     * @return Factory|View
+     */
     public function user($id)
     {
         $users = UserController::getChilds($id);
@@ -33,6 +53,12 @@ class PageController extends Controller
         return view('pages.user', compact('users', 'user'));
     }
 
+    /**
+     * Settings page
+     *
+     * @param $id
+     * @return Factory|View
+     */
     public function settings($id)
     {
         $settings = UserController::getSettings($id);

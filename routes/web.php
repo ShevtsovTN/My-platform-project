@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +43,10 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/messages/{id}', [MessagesController::class, 'update'])->name('updateMessage');
     Route::delete('/messages/{id}', [MessagesController::class, 'destroy'])->name('deleteMessage');
     Route::post('/search', [UserController::class, 'searchUser'])->name('search');
+    Route::get('/balance', [PaymentsController::class, 'index'])->name('balance');
     Route::middleware(['view.childs'])->group(function () {
+        Route::get('/balance/{id}', [PaymentsController::class, 'show'])->name('balanceUser');
+        Route::post('/balance/{id}', [PaymentsController::class, 'store'])->name('changeBalance');
         Route::get('/users/{id}', [PageController::class, 'user'])->name('user');
         Route::get('/users/{id}/settings', [PageController::class, 'settings'])->name('userSettings');
         Route::post('/users/{id}/settings', [UserController::class, 'setSettings'])->name('setSettings');
