@@ -12,14 +12,14 @@ class IsOnline extends Command
      *
      * @var string
      */
-    protected $signature = 'users_online_check';
+    protected $signature = 'users_offline_check';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Check users online';
+    protected $description = 'Checking offline users';
 
     /**
      * Create a new command instance.

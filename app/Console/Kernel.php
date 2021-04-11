@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('users_online_check')->everyMinute();
+        $schedule->command('users_offline_check')->everyMinute();
     }
 
     /**

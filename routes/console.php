@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
-Artisan::command('users_online_check', function () {
+/*Artisan::command('users_online_check', function () {
     $this->info('Checking users process started');
     $timeline = date('Y-m-d H:i:s', mktime(date("H"), date("i") - 1, date("s"), date("m")  , date("d"), date("Y")));
     User::where('updated_at', '<', $timeline)->update([
         'online' => 0
     ]);
     $this->info('Checking users process finished');
-})->purpose('Checking online users');
+})->purpose('Checking offline users');*/
