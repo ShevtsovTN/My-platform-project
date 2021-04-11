@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public static function online()
     {
-        User::where('id', Auth::id())->update(['online' => 1, 'updated_at' => date('Y-m-d H:i:s')]);
+        User::where('id', '=', Auth::id())->update(['online' => 1, 'updated_at' => date('Y-m-d H:i:s')]);
     }
 
     /**
@@ -24,7 +24,7 @@ class UserController extends Controller
      */
     public static function offline()
     {
-        User::where('id', Auth::id())->update(['online' => 0, 'updated_at' => date('Y-m-d H:i:s')]);
+        User::where('id', '=', Auth::id())->update(['online' => 0, 'updated_at' => date('Y-m-d H:i:s')]);
     }
 
     /**
@@ -104,6 +104,10 @@ class UserController extends Controller
         $childs = DB::table('cte')
             ->withRecursiveExpression('cte', $query)
             ->get()->toArray();
+        foreach ($childs as $index => &$child) {
+            $child->cash = number_format($child->cash, 2, ',',' ');
+        }
+        unset($child);
         return $childs;
     }
 
