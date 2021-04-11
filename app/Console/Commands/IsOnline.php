@@ -43,6 +43,9 @@ class IsOnline extends Command
         User::where('updated_at', '<', $timeline)->update([
             'online' => 0
         ]);
+        User::where('updated_at', '>', $timeline)->update([
+            'online' => 1
+        ]);
         $this->info('Checking users process finished');
     }
 }

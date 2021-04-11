@@ -264,10 +264,9 @@ class UserController extends Controller
         foreach ($childs as $index => $child) {
             if ($request->searchUser == $child->login) {
                 return redirect()->route('userSettings', $child->id);
-            } else {
-                $request->session()->flash('error', 'User not found');
-                return redirect()->back();
             }
         }
+        $request->session()->flash('error', 'User not found');
+        return redirect()->back();
     }
 }
